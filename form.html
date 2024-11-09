@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me | The Northside Venue</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Contact Form Specific Styling */
+        .form-container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+        fieldset { border: 1px solid #ddd; padding: 20px; margin-bottom: 20px; border-radius: 8px; }
+        legend { font-size: 1.2em; font-weight: bold; color: #333; }
+        label { display: block; margin-top: 10px; font-weight: bold; }
+        input[type="text"], input[type="email"], textarea, select {
+            width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ddd; border-radius: 5px;
+        }
+        input[type="radio"], input[type="checkbox"] { margin-right: 5px; }
+        .form-buttons { text-align: center; margin-top: 20px; }
+        input[type="submit"] {
+            padding: 10px 20px; background-color: #333; color: #fff; border: none; border-radius: 5px; cursor: pointer; font-size: 1em;
+        }
+        input[type="submit"]:hover { background-color: #555; }
+        .message { color: green; font-weight: bold; text-align: center; }
+    </style>
+</head>
+<body>
+
+    <!-- Header with Logo and Title -->
+    <header>
+        <img src="TNVII.jpg" alt="The Northside Venue Logo">
+        <h1>The Northside Venue</h1>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contact Form Section -->
+    <div class="main-content">
+        <div class="form-container">
+            <h2>Contact Me</h2>
+
+            <!-- Contact Form -->
+            <form id="contactForm">
+                <!-- Form Fieldset -->
+                <fieldset>
+                    <legend>Contact Information</legend>
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="phone">Phone Number:</label>
+                    <input type="text" id="phone" name="phone" required>
+                </fieldset>
+
+                <!-- Event Information Fieldset -->
+                <fieldset>
+                    <legend>Event Details</legend>
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                    <label>Preferred Contact Method:</label>
+                    <label><input type="radio" name="contact_method" value="email" checked>Email</label>
+                    <label><input type="radio" name="contact_method" value="phone">Phone</label>
+                    <label>Services Interested In:</label>
+                    <label><input type="checkbox" name="services[]" value="Venue Rental">Venue Rental</label>
+                    <label><input type="checkbox" name="services[]" value="Event Planning">Event Planning</label>
+                    <label><input type="checkbox" name="services[]" value="Catering">Catering</label>
+                    <label for="event_type">Type of Event:</label>
+                    <select id="event_type" name="event_type">
+                        <option value="birthday">Birthday Party</option>
+                        <option value="wedding">Wedding</option>
+                        <option value="corporate">Corporate Event</option>
+                        <option value="other">Other</option>
+                    </select>
+                </fieldset>
+
+                <!-- Submit Button -->
+                <div class="form-buttons">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+
+            <!-- Confirmation Message -->
+            <div class="message" id="confirmationMessage"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 The Northside Venue | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        // Capture form submission
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from refreshing the page
+            
+            // Capture form data
+            var name = document.getElementById('name').value;
+            
+            // Show confirmation message
+            var confirmationMessage = document.getElementById('confirmationMessage');
+            confirmationMessage.innerHTML = "Thank you, " + name + "! Your form has been successfully submitted.";
+            
+            // Optionally, clear the form fields after submission
+            document.getElementById('contactForm').reset();
+        });
+    </script>
+
+</body>
+</html>
+
